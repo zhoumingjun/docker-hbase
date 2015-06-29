@@ -2,13 +2,14 @@ FROM debian:jessie
 
 MAINTAINER zhoumingjun <zhoumingjun@gmail.com>
 
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
 	build-essential \
 	wget \
 	telnet \
 	openjdk-7-jdk \
 	supervisor
+
+RUN apt-get clean
 
 # env
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
