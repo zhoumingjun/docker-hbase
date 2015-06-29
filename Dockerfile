@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian:jessie
 MAINTAINER zhoumingjun <zhoumingjun@gmail.com>
 
 RUN apt-get update
@@ -25,7 +25,7 @@ ADD ./hbase-site.xml /hbase-setup/
 RUN ./install-hbase.sh
 
 #
-COPY  hbase-site.xml /opt/hbase/conf/hbase-site.xml 
+COPY  hbase-site.xml /opt/hbase/conf/hbase-site.xml
 
 RUN /opt/hbase/bin/hbase-config.sh
 
@@ -49,4 +49,3 @@ EXPOSE 9090
 
 
 CMD ["/usr/bin/supervisord"]
-
